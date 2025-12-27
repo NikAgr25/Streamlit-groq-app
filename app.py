@@ -12,7 +12,7 @@ load_dotenv()
 model = pickle.load(open("dt_crop.pkl", "rb"))
 
 # Groq client
-client = Groq(api_key=os.getenv("GROQ_API_KEY"))
+client = Groq(api_key=st.secrets["GROQ_API_KEY"])
 
 # Page config
 st.set_page_config(
@@ -89,3 +89,4 @@ if user_input:
     st.session_state.chat_history.append(
         {"role": "assistant", "content": bot_reply}
     )
+
